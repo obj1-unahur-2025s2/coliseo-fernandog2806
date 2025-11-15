@@ -1,9 +1,29 @@
-import example.pepita
+import example.*
+test "grupo creado por mirmillon tiene nombre correcto" {
+  const espada = new ArmaDeFilo(filo = 2, longitud = 3)
+  const mirmillon = new Mirmillon(armaEnMano = espada, fuerza = 10, casco = cascos, escudo = escudos)
+  const otro = new Dimachaerus(destreza = 15)
+  const grupo = new Grupo(nombre = "mirmillolandia")
+  grupo.agregarGladiador(mirmillon)
+  grupo.agregarGladiador(otro)
 
-describe "group of tests for pepita" {
+  
+  assert.equals("mirmillolandia", grupo)
+}
 
-  test "pepita has initial energy" {
-    assert.equals(100, pepita.energy())
-  }
+test "grupo creado por dimachaerus tiene nombre correcto" {
+  const espadaD = new ArmaDeFilo(filo = 1, longitud = 4) // 4
+  const dimachaerus = new Dimachaerus(destreza = 12)
+  dimachaerus.agregarUnArma(espadaD)
 
+  const espadaM = new ArmaDeFilo(filo = 2, longitud = 3) // 6
+  const mirmillon = new Mirmillon(armaEnMano = espadaM, fuerza = 8, casco = cascos, escudo = escudos)
+
+  const poder = dimachaerus.valorDeAtaqueDelGladiador() + mirmillon.valorDeAtaqueDelGladiador() // 4 + 6 = 10
+  const grupo = new Grupo(nombre = "D-" + poder)
+
+  grupo.agregarGladiador(dimachaerus)
+  grupo.agregarGladiador(mirmillon)
+
+  assert.equals("D-10", grupo.nombre())
 }

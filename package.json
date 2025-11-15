@@ -3,5 +3,8 @@
   "version": "1.0.0",
   "wollokVersion": "4.0.0",
   "author": "CONIGLIOH",
-  "license": "ISC"
+  "license": "ISC",
+  "markdown-preview-github-styles.colorTheme": "light",
+  "markdown-preview-github-styles.lightTheme": "light"
+
 }
